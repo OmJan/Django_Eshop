@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container"> <!-- Center the form using mx-auto -->
+    <div class="p-4 m-4">
+
+        <div class="col-lg-5 mx-auto border rounded p-4">
+            <div class="text-center col">
+
+                <img src="/static/shopingCart.png" alt="" style="height: 150px;">
+                <!-- <hr> -->
+                <div class="display-8">Create Account</div>
+                <hr>
+            </div>
+            <form action="/signup1" method="POST">
+                {% csrf_token%}
+                {%if error%}
+                <div class="alert alert-danger">{{error}}</div>
+                {%endif%}
+
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">Enter your First Name</label>
+                    <input type="text" name="first_name" class="form-control" id="firstname"
+                        value="{{values.first_name}}" placeholder="First name">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Enter your last Name</label>
+                    <input type="text" name="last_name" class="form-control" id="lastname" value="{{values.last_name}}"
+                        placeholder="Last name">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Password1">phone</label>
+                    <input type="password" name="phone" class="form-control" id="phone" value="{{values.phone}}"
+                        placeholder="Enter your phone Number">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" value="{{values.email}}"
+                        placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password"
+                        placeholder="Enter Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <div class="text-center">
+                <p>Create An Account <a href="/login ">Log In</a></p>
+
+                <button type="submit" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}

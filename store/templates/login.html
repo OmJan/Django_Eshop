@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="p-4 m-4">
+
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+
+            <div class="text-center col">
+
+                <img src="/static/shopingCart.png"
+                    alt="" style="height: 150px;">
+                <!-- <hr> -->
+                <div class="display-8">Log Page</div>
+                <hr>
+            </div>
+            <form action="/login" method="POST">
+                {% csrf_token%}
+                {%if error%}
+                <div class="alert alert-danger">{{error}}</div>
+                {%endif%}
+                <div class="form-group">
+                    <label for="email1">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="Password1">Password1</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                        placeholder="Enter Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div class="text-center">
+                <p>Not a member? <a href="/signup1 ">Register</a></p>
+                <button type="submit" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
